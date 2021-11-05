@@ -21,6 +21,7 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+bspc rule -a colorpicker sticky=off state=floating rectangle=424x175+0+0 center=on
 ${HOME}/.config/polybar/launch.sh &
 
 feh --bg-fill /home/ramzzs/Descargas/Elma-wallpaper.jpg
@@ -33,4 +34,4 @@ picom -f &
 
 bspc config border_width 0
 xsetroot -cursor_name left_ptr &
-
+xinput --disable 'Elan Touchpad' &
