@@ -1,5 +1,11 @@
 #
 # wm independent hotkeys
+#Screenshot scrot section
+Print
+    scrot -s $HOME/'Imágenes/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
+#Screenshot scrot
+control + Print
+    scrot $HOME/'Imágenes/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
 #Rofi Windows
 alt + Tab
 	rofi -show window
