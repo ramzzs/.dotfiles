@@ -1,10 +1,16 @@
 #
 # wm independent hotkeys
+#Ranger
+super + e
+		alacritty -e ranger
+#Nautilus
+super + alt + e
+		nautilus
 #Screenshot scrot section
 Print
     scrot -s $HOME/'Imágenes/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
 #Screenshot scrot
-control + Print
+ctrl + Print
     scrot $HOME/'Imágenes/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
 #Rofi Windows
 alt + Tab
@@ -17,7 +23,7 @@ super + alt + z
 	google-chrome
 # open brave
 super + alt + x
-	brave-browser
+	brave
 # open firefox 
 super + alt + p
 	firefox
@@ -42,25 +48,25 @@ super + F11
 super + F12 
 	xbacklight -inc 5
 #powerOff
-super + alt + ctrl p
+super + alt + ctrl + p
 	systemctl poweroff
 #suspend
-super + alt + ctrl s
-	systemctl suspend
+super + alt + ctrl + s
+	i3lock -i Imágenes/Wallpapers/lock-elma-chan.png ; systemctl suspend
 #lock
-super + alt + ctrl l
-	i3lock -i Descargas/lock-elma-chan.png
+super + alt + ctrl + l
+	i3lock -i Imágenes/Wallpapers/lock-elma-chan.png
 #keyboard layout
 super + x
     {setxkbmap us, setxkbmap latam}
-
+#############################################
 # terminal emulator
 super + Return
-	alacritty
+	alacritty	
 
 # program launcher
 super + d
-	rofi -show drun	
+	rofi -disable-history -show drun
 
 # make sxhkd reload its configuration files:
 super + Escape

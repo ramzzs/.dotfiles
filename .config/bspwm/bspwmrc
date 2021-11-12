@@ -1,13 +1,14 @@
 #! /bin/sh
 
 pgrep -x sxhkd > /dev/null || sxhkd &
-xbacklight -set 30 &
 
 if [[ $(xrandr -q | grep 'HDMI-A-0 connected')]]; then
 xrandr --output eDP --primary --mode 1920x1080 --rotate normal --output HDMI-A-0 --mode 1360x768 --rotate normal --right-of eDP 
 fi
 bspc monitor eDP -d I II III IV V
 bspc monitor HDMI-A-0 -d VI VII VIII IX X
+
+~/.config/polybar/./launch.sh
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -20,18 +21,13 @@ bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
 bspc rule -a colorpicker sticky=off state=floating rectangle=424x175+0+0 center=on
-${HOME}/.config/polybar/launch.sh &
+bspc rule -a Screenkey manage=off
 
-feh --bg-fill /home/ramzzs/Descargas/Elma-wallpaper.jpg
+feh --bg-fill /home/ramzzs/Imágenes/Wallpapers/elma-wallpaper-1.png
 
-~/.config/polybar/./launch.sh
-
-bspc config focus_follows_pointer false
-
-picom -f &
-
+picom --experimental-backends &
 bspc config border_width 0
-xsetroot -cursor_name left_ptr &
+
+xbacklight -set 30 &
 xinput --disable 'Elan Touchpad' &
