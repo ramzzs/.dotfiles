@@ -7,7 +7,9 @@ source ~/.config/nvim/general/keys.vim
 
 "Theme
 source ~/.config/nvim/general/colors.vim
-source ~/.config/nvim/themes/gruvbox.vim
+"source ~/.config/nvim/themes/gruvbox.vim
+"source ~/.config/nvim/themes/onedark.vim
+source ~/.config/nvim/themes/dracula.vim
 
 "Import plugin settings
 source ~/.config/nvim/plug-settings/airline.vim
@@ -21,7 +23,6 @@ source ~/.config/nvim/plug-settings/ulti-snippets.vim
 source ~/.config/nvim/plug-settings/vim-clang-format.vim
 source ~/.config/nvim/plug-settings/vim-closetag.vim
 source ~/.config/nvim/plug-settings/vim-dev-icon.vim
-source ~/.config/nvim/plug-settings/supertab.vim
 source ~/.config/nvim/plug-settings/emmet.vim
 source ~/.config/nvim/plug-settings/limelight.vim
 source ~/.config/nvim/plug-settings/telescope.vim

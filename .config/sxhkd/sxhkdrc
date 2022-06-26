@@ -1,69 +1,73 @@
 #
 # wm independent hotkeys
-#Ranger
-super + e
-		alacritty -e ranger
-#Nautilus
-super + alt + e
-		nautilus
-#Screenshot scrot section
-Print
-    scrot -s $HOME/'Imágenes/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
-#Screenshot scrot
-ctrl + Print
-    scrot $HOME/'Imágenes/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
-#Rofi Windows
-alt + Tab
-	rofi -show window
-#Touchpad Toggle Enable/Disable
-super + F6
-	test $(xinput list-props "Elan Touchpad" | grep "Device Enabled" | cut -f3) -eq 1 && xinput disable "Elan Touchpad" || xinput enable "Elan Touchpad"
-# open chrome 
-super + alt + z
-	google-chrome
-# open brave
-super + alt + x
-	brave
-# open firefox 
-super + alt + p
-	firefox
-# Focused desktop window gaps scroll
-super + button{4,5}
-	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {-,+} 5 ))
-# Global window gaps scroll
-super + alt + button{4,5}
-	bspc config window_gap $(( $(bspc config window_gap) {-,+} 5 ))
-# Raises volume
-super + F3
-	amixer -D pulse sset Master 5%+
-# Lowers volume
-super + F2
-	amixer -D pulse sset Master 5%-
-# Mute volume
-super + F1
-		amixer -D pulse sset Master 1+ toggle
-# Brightness
-super + F11
-	xbacklight -dec 5
-super + F12 
-	xbacklight -inc 5
+#
 #powerOff
 super + alt + ctrl + p
 	systemctl poweroff
-#suspend
-super + alt + ctrl + s
-	i3lock -i Imágenes/Wallpapers/lock-elma-chan.png ; systemctl suspend
-#lock
-super + alt + ctrl + l
-	i3lock -i Imágenes/Wallpapers/lock-elma-chan.png
-#keyboard layout
-super + x
-    {setxkbmap us, setxkbmap latam}
-#############################################
+
+#Rofi Windows
+alt + Tab
+	rofi -show window
+
+#Rofi Script Selector
+super + ctrl + d 
+	selected=$(ls ~/.config/rofi/scripts/|rofi -dmenu -p "Run: ")&&bash ~/.config/rofi/scripts/$selected
+
+# open chrome 
+super + alt + z
+	google-chrome
+
+# open brave
+super + alt + p
+	brave-browser
+
+# open firefox developer edition 
+super + alt + c
+	/opt/firefox/firefox
+
+# open firefox 
+super + alt + x
+	firefox
+
+# Focused desktop window gaps scroll
+super + button{4,5}
+	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {-,+} 5 ))
+
+# Global window gaps scroll
+super + alt + button{4,5}
+	bspc config window_gap $(( $(bspc config window_gap) {-,+} 5 ))
+
+#Ranger
+super + e
+		tilix -e ranger
+
+#Nautilus
+super + alt + e
+		nautilus
+
+# Raises volume
+super + F11
+	amixer -D pulse sset Master 5%+
+# Lowers volume
+super + F10
+	amixer -D pulse sset Master 5%-
+# Mute volume
+super + F9
+		amixer -D pulse sset Master 1+ toggle
+# Brightness
+super + F3
+	xbacklight -dec 5
+super + F4 
+	xbacklight -inc 5
+#Touchpad Toggle Enable/Disable
+super + F7
+	test $(xinput list-props "ELAN050A:01 04F3:3158 Touchpad" | grep "Device Enabled" | cut -f3) -eq 1 && xinput disable "ELAN050A:01 04F3:3158 Touchpad" || xinput enable "ELAN050A:01 04F3:3158 Touchpad"
+
 # terminal emulator
 super + Return
-	alacritty	
+	tilix
 
+#################################################################################################
 # program launcher
 super + d
 	rofi -disable-history -show drun
@@ -103,6 +107,14 @@ super + g
 # set the window state
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# Toggle floating
+super + a
+    if [ -z "$(bspc query -N -n focused.floating)" ]; then \
+        bspc node focused -t floating; \
+    else \
+        bspc node focused -t tiled; \
+    fi
 
 # set the node flags
 super + ctrl + {m,x,y,z}

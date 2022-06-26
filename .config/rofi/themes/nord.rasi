@@ -1,5 +1,5 @@
 configuration {
-  show-icons: false;
+  show-icons: true;
   font: "SauceCodePro Nerd Font Medium 10";
   drun-display-format: "{icon} {name}";
   display-run: " ";
@@ -24,7 +24,7 @@ configuration {
 }
 
 window {
-  width: 20%;
+  width: 30%;
   transparency: "real";
 }
 
@@ -37,7 +37,7 @@ listview {
 }
 
 element {
-  padding: 5;
+  padding: 12;
   orientation: vertical;
   text-color: @fg;
 }

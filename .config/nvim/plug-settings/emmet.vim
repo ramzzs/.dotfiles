@@ -8,3 +8,4 @@ let g:user_emmet_settings = {
 \  },
 \}
 
+let g:user_emmet_leader_key=','

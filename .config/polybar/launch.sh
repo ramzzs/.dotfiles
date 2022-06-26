@@ -16,11 +16,10 @@ polybar secondary -c ~/.config/polybar/current.ini &
 
 ## Right bar
 polybar top -c ~/.config/polybar/current.ini &
-polybar resources-cpu -c ~/.config/polybar/current.ini &
-polybar resources-memory -c ~/.config/polybar/current.ini &
+#polybar resources-cpu -c ~/.config/polybar/current.ini &
+#polybar resources-memory -c ~/.config/polybar/current.ini &
 polybar resources-xkeyboard -c ~/.config/polybar/current.ini &
 polybar resources-window -c ~/.config/polybar/current.ini &
-#polybar primary -c ~/.config/polybar/current.ini &
 
 ## Center bar
 polybar primary -c ~/.config/polybar/workspace.ini &

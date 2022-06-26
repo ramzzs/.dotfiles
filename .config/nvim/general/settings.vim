@@ -2,7 +2,7 @@
 let mapleader = " "
 
 set encoding=utf-8
-set mouse=a "this enable the mouse compatibility
+"set mouse=a "this enable the mouse compatibility
 
 set mouse=c
 
@@ -35,12 +35,17 @@ nnoremap <silent> // :noh<CR>
 
 "set the cursorline and a column
 set cursorline
-set colorcolumn=120
-highlight ColoColumn ctermbg=0 guibg=lightgrey
+set cursorcolumn 
+
+"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"highlight ColoColumn ctermbg=0 guibg=lightgray
 
 "this sets the directions of the splits
 set splitbelow
 set splitright
+
+set termguicolors
 
 nnoremap <silent> <M-Up>    :<C-U>exec "exec 'norm m`' \| move -" . (1+v:count1)<CR>``
 nnoremap <silent> <M-Down>  :<C-U>exec "exec 'norm m`' \| move +" . (0+v:count1)<CR>``

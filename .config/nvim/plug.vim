@@ -1,11 +1,10 @@
 call plug#begin('~/.local/share/nvim/plugged')
 "themes
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'joshdick/onedark.vim'
 Plug 'kjwon15/vim-transparent'
-Plug 'AlessandroYorba/Despacio'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'mhartington/oceanic-next'
 Plug 'wojciechkepka/bogster'
 "visual
@@ -17,15 +16,15 @@ Plug 'lilydjwg/colorizer'
 Plug 'leafgarland/typescript-vim'
 Plug 'uiiaoo/java-syntax.vim'
 Plug 'junegunn/limelight.vim'
-
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 "Git integration
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
-
 "Functionality
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
@@ -56,13 +55,11 @@ Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rhysd/vim-clang-format'
-
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'maxmellon/vim-jsx-pretty'
-
 Plug 'honza/vim-snippets'
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'tpope/vim-surround'
 "productivity
 Plug 'wakatime/vim-wakatime'

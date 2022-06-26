@@ -42,3 +42,5 @@ nnoremap <leader>t :tabe<CR>
 "horizontal split
 nnoremap <leader>vs :vsp<CR>
 nnoremap <leader>sp :sp<CR>
+"NerdCommenter |NERDCommenterSexy
+nmap <Leader>sc <plug>NERDCommenterSexy

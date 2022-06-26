@@ -2,13 +2,15 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-if [[ $(xrandr -q | grep 'HDMI-A-0 connected')]]; then
-xrandr --output eDP --primary --mode 1920x1080 --rotate normal --output HDMI-A-0 --mode 1360x768 --rotate normal --right-of eDP 
-fi
-bspc monitor eDP -d I II III IV V
-bspc monitor HDMI-A-0 -d VI VII VIII IX X
+#bspc monitor -d I II III IV V VI VII VIII IX X
 
-~/.config/polybar/./launch.sh
+
+#if [[ $(xrandr -q | grep 'HDMI1 connected')]]; then
+xrandr --output eDP1 --primary --mode 1920x1080 --rotate normal --output HDMI1 --mode 1360x768 --rotate normal --right-of eDP1
+#fi
+bspc monitor eDP1 -d I II III IV V
+bspc monitor HDMI1 -d VI VII VIII IX X
+
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -21,13 +23,10 @@ bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
-bspc rule -a colorpicker sticky=off state=floating rectangle=424x175+0+0 center=on
 bspc rule -a Screenkey manage=off
 
-feh --bg-fill /home/ramzzs/Imágenes/Wallpapers/elma-wallpaper-1.png
-
-picom --experimental-backends &
+feh --bg-fill ~/Imágenes/Wallpapers/anm6655.jpg
+~/.config/polybar/./launch.sh
+picom -f &
 bspc config border_width 0
-
-xbacklight -set 30 &
-xinput --disable 'Elan Touchpad' &
+setxkbmap -option caps:swapescape &
